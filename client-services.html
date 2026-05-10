@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINTED | Client Services</title>
+    <style>
+        /* Global Luxury Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #faf9f6;
+            color: #1a1a1a;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Didot', 'Playfair Display', 'Times New Roman', serif;
+            font-weight: 400;
+        }
+
+        a {
+            color: #1a1a1a;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.5;
+        }
+
+        /* Minimal Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 50px;
+            /* Slimmed down for a dock feel */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.486);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header-links a {
+            color: #000000;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-links {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            flex: 1;
+        }
+
+        .header-links:last-of-type {
+            justify-content: flex-end;
+        }
+
+        /* Updated Logo Styles */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 40px;
+            flex-shrink: 0;
+        }
+
+        .logo-img {
+            height: 80px;
+            width: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
+            /* Subtle interaction effect */
+        }
+
+        /* 1. Page Title */
+        .page-header {
+            padding: 180px 10% 80px;
+            text-align: center;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .page-header p {
+            font-size: 1rem;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* 2. Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2px;
+            background-color: #eaeaea;
+        }
+
+        .contact-card {
+            background-color: #faf9f6;
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .contact-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-card p {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            border: 1px solid #1a1a1a;
+            padding: 12px 30px;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background-color: #1a1a1a;
+            color: #faf9f6;
+        }
+
+        /* 3. The Archives (FAQ Accordion) */
+        .archives {
+            padding: 100px 10% 150px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .archives h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        details {
+            border-bottom: 1px solid #eaeaea;
+            padding: 20px 0;
+        }
+
+        summary {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            outline: none;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+            /* Removes default arrow in most browsers */
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        /* Removes default arrow in WebKit */
+
+        summary::after {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        .details-content {
+            padding-top: 20px;
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 80px 10% 40px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Didot', serif;
+            font-size: 2rem;
+            letter-spacing: 8px;
+            margin-bottom: 60px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+        }
+
+        .copyright {
+            color: #555;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .header-links {
+                display: none;
+            }
+
+            header {
+                padding: 20px;
+                justify-content: center;
+            }
+
+            .page-header {
+                padding: 120px 5% 60px;
+            }
+
+            .archives {
+                padding: 60px 5% 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-links">
+            <a href="index.html">Boutique</a>
+            <a href="maison.html">The Maison</a>
+        </div>
+
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="logo-wbg.png" alt="MINTED Logo" class="logo-img">
+            </a>
+        </div>
+
+        <div class="header-links">
+            <a href="client-services.html" style="border-bottom: 1px solid #1a1a1a;">Client Services</a>
+            <a href="#">Search</a>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <h1>Client Services</h1>
+        <p>How may we assist you with your Minted acquisition?</p>
+    </section>
+
+    <section class="contact-grid">
+        <div class="contact-card">
+            <h2>The Concierge</h2>
+            <p>Connect directly with a Minted style advisor for sizing guidance, collection inquiries, or styling
+                advice.</p>
+            <a href="#" class="btn-outline">Message on WhatsApp</a>
+        </div>
+        <div class="contact-card">
+            <h2>Digital Inquiry</h2>
+            <p>For press, partnerships, or detailed order inquiries, please reach out to our global team.</p>
+            <a href="mailto:concierge@mintedindia.com" class="btn-outline">Send an Email</a>
+        </div>
+    </section>
+
+    <section class="archives">
+        <h2>The Archives</h2>
+
+        <details>
+            <summary>Acquisitions & Shipping</summary>
+            <div class="details-content">
+                All Minted garments are dispatched from our facilities in India. Standard domestic acquisitions take 3-5
+                business days. International transit times vary by destination. You will receive a tracking dossier once
+                your parcel has been handed over to our couriers.
+            </div>
+        </details>
+
+        <details>
+            <summary>Garment Care</summary>
+            <div class="details-content">
+                To preserve the structural integrity and heavy-weight drape of your Minted pieces, we recommend dry
+                cleaning or cold-washing inside out. Lay flat to dry. Do not apply heat directly to any printed or
+                embroidered crests.
+            </div>
+        </details>
+
+        <details>
+            <summary>Returns & Exchanges</summary>
+            <div class="details-content">
+                We accept returns on unworn, unaltered items with all tags and original packaging intact within 14 days
+                of delivery. Due to the limited nature of our drops, direct exchanges are subject to inventory
+                availability. Please contact the Concierge to initiate a return.
+            </div>
+        </details>
+
+        <details>
+            <summary>Authenticity & Drops</summary>
+            <div class="details-content">
+                Minted operates on a strictly limited release schedule. Once a collection is archived, it will not be
+                restocked. To ensure authenticity, only acquire Minted garments directly through our official boutique
+                or sanctioned partners.
+            </div>
+        </details>
+    </section>
+
+    <footer>
+        <div class="footer-logo">MINTED</div>
+        <div class="footer-links">
+            <a href="index.html">Boutique</a>
+            <a href="maison.html">The Maison</a>
+            <a href="#">Legal & Privacy</a>
+        </div>
+        <div class="copyright">
+            © 2026 Minted India. All Rights Reserved. <br><br>
+            <a href="https://mintedindia.com" style="text-transform: lowercase; opacity: 0.5;">mintedindia.com</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

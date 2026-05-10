@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINTED | The Maison</title>
+    <style>
+        /* Global Luxury Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #faf9f6;
+            /* Off-white luxury cream */
+            color: #1a1a1a;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* High-End Typography */
+        h1,
+        h2,
+        h3 {
+            font-family: 'Didot', 'Playfair Display', 'Times New Roman', serif;
+            font-weight: 400;
+        }
+
+        .serif-text {
+            font-family: 'Didot', 'Playfair Display', serif;
+        }
+
+        a {
+            color: #1a1a1a;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.5;
+        }
+
+        /* Minimal Header - Dark text for this page */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 50px;
+            /* Slimmed down for a dock feel */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.486);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header-links a {
+            color: #000000;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-links {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            flex: 1;
+        }
+
+        .header-links:last-of-type {
+            justify-content: flex-end;
+        }
+
+        /* Updated Logo Styles */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 40px;
+            flex-shrink: 0;
+        }
+
+        .logo-img {
+            height: 80px;
+            width: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
+            /* Subtle interaction effect */
+        }
+
+        /* 1. Maison Hero / Quote Section */
+        .maison-hero {
+            padding: 180px 10% 100px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .maison-hero h1 {
+            font-size: 3rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        .quote {
+            font-size: 2rem;
+            color: #555;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        /* 2. Editorial Sections (Vision & Craft) */
+        .editorial {
+            padding: 100px 10%;
+            display: flex;
+            align-items: center;
+            gap: 100px;
+        }
+
+        .editorial.reverse {
+            flex-direction: row-reverse;
+            background-color: #f0eee9;
+        }
+
+        .editorial-text {
+            flex: 1;
+        }
+
+        .editorial-text h2 {
+            font-size: 2.5rem;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .editorial-text p {
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .editorial-image {
+            flex: 1;
+            height: 700px;
+            background-color: #ddd;
+        }
+
+        .img-vision {
+            background: url('https://placehold.co/800x1200/222/555?text=CAMPAIGN+VISION') no-repeat center center/cover;
+        }
+
+        .img-craft {
+            background: url('https://placehold.co/800x1200/ccc/777?text=MACRO+FABRIC+DETAIL') no-repeat center center/cover;
+        }
+
+        /* 3. The Legacy (Minimalist Text Block) */
+        .legacy-section {
+            padding: 200px 10%;
+            text-align: center;
+            background-color: #faf9f6;
+        }
+
+        .legacy-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .legacy-content h2 {
+            font-size: 2.5rem;
+            letter-spacing: 4px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .legacy-content p {
+            font-size: 1.5rem;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 60px;
+        }
+
+        .legacy-statement {
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+            display: inline-block;
+            padding: 20px 0;
+        }
+
+        /* 4. Luxury Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 80px 10% 40px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Didot', serif;
+            font-size: 2rem;
+            letter-spacing: 8px;
+            margin-bottom: 60px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+        }
+
+        .copyright {
+            color: #555;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 900px) {
+            .header-links {
+                display: none;
+            }
+
+            .editorial,
+            .editorial.reverse {
+                flex-direction: column;
+                padding: 60px 5%;
+                gap: 40px;
+            }
+
+            .editorial-image {
+                width: 100%;
+                height: 500px;
+            }
+
+            header {
+                padding: 20px;
+                justify-content: center;
+            }
+
+            .quote {
+                font-size: 1.5rem;
+            }
+
+            .legacy-section {
+                padding: 100px 5%;
+            }
+
+            .legacy-content p {
+                font-size: 1.2rem;
+            }
+
+            .legacy-statement {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-links">
+            <a href="index.html">Boutique</a>
+            <a href="maison.html" style="border-bottom: 1px solid #1a1a1a;">The Maison</a>
+        </div>
+
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="logo-wbg.png" alt="MINTED Logo" class="logo-img">
+            </a>
+        </div>
+
+        <div class="header-links">
+            <a href="client-services.html">Client Services</a>
+            <a href="#">Search</a>
+        </div>
+    </header>
+
+    <section class="maison-hero">
+        <h1>The Maison Minted</h1>
+        <div class="quote serif-text">
+            "Elegance is not about being noticed, it is about being remembered."
+        </div>
+    </section>
+
+    <section class="editorial">
+        <div class="editorial-image img-vision"></div>
+        <div class="editorial-text">
+            <h2>I. The Vision</h2>
+            <p>Minted was born from a singular philosophy: that what you wear should articulate your ambition before you
+                utter a single word. We do not simply design clothes; we engineer confidence.</p>
+            <p>In a world characterized by noise and fleeting trends, Minted stands as a testament to the power of
+                restraint. Our silhouettes are sharp, our palette is intentional, and our focus is uncompromisingly
+                modern. We build for those who command the room.</p>
+        </div>
+    </section>
+
+    <section class="editorial reverse">
+        <div class="editorial-image img-craft"></div>
+        <div class="editorial-text">
+            <h2>II. The Craft</h2>
+            <p>True luxury resides in the details only the wearer can feel. It is the exacting weight of the cotton, the
+                precise architecture of a seam, and the flawless drape of a tailored edge.</p>
+            <p>Minted approaches garment creation as an art form. Rooted in India’s deep history of textile mastery, yet
+                speaking a radically global language of minimalism, every piece in our collection undergoes rigorous
+                refinement. We source superior materials not for the label, but for the longevity.</p>
+        </div>
+    </section>
+
+    <section class="legacy-section">
+        <div class="legacy-content">
+            <h2>III. The Legacy</h2>
+            <p class="serif-text">Minted is not a seasonal wardrobe; it is a uniform for the relentless. To step into
+                our garments is to accept a higher standard for yourself. We design for the quiet innovators, the
+                visionaries, and the architects of tomorrow.</p>
+            <div class="legacy-statement serif-text">
+                This is not just fashion.<br>This is your legacy, tailored.
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">MINTED</div>
+
+        <div class="footer-links">
+            <a href="#">Contact Us</a>
+            <a href="#">Boutique</a>
+            <a href="#">Legal & Privacy</a>
+        </div>
+
+        <div class="copyright">
+            © 2026 Minted India. All Rights Reserved. <br><br>
+            <a href="https://mintedindia.com" style="text-transform: lowercase; opacity: 0.5;">mintedindia.com</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
